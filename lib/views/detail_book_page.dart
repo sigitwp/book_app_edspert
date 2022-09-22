@@ -50,12 +50,12 @@ class _DetailBookPageState extends State<DetailBookPage> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => ImageViewScreen(
-                                    imageUrl: controller!.detailBook!.image!),
+                                    imageUrl: controller.detailBook!.image!),
                               ),
                             );
                           },
                           child: Image.network(
-                            controller!.detailBook!.image!,
+                            controller.detailBook!.image!,
                             height: 150,
                           ),
                         ),
@@ -66,14 +66,14 @@ class _DetailBookPageState extends State<DetailBookPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  controller!.detailBook!.title!,
+                                  controller.detailBook!.title!,
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 Text(
-                                  controller!.detailBook!.authors!,
+                                  controller.detailBook!.authors!,
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,
@@ -86,7 +86,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
                                     (index) => Icon(
                                       Icons.star,
                                       color: index <
-                                              int.parse(controller!
+                                              int.parse(controller
                                                   .detailBook!.rating!)
                                           ? Colors.yellow
                                           : Colors.grey,
@@ -94,7 +94,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
                                   ),
                                 ),
                                 Text(
-                                  controller!.detailBook!.subtitle!,
+                                  controller.detailBook!.subtitle!,
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
@@ -102,7 +102,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
                                   ),
                                 ),
                                 Text(
-                                  controller!.detailBook!.price!,
+                                  controller.detailBook!.price!,
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class _DetailBookPageState extends State<DetailBookPage> {
                               // fixedSize: Size(double.infinity, 50),
                               ),
                           onPressed: () async {
-                            Uri uri = Uri.parse(controller!.detailBook!.url!);
+                            Uri uri = Uri.parse(controller.detailBook!.url!);
                             try {
                               await (canLaunchUrl(uri))
                                   ? launchUrl(uri)
@@ -136,22 +136,21 @@ class _DetailBookPageState extends State<DetailBookPage> {
                           child: Text("BUY")),
                     ),
                     SizedBox(height: 20),
-                    Text(controller!.detailBook!.desc!),
+                    Text(controller.detailBook!.desc!),
                     SizedBox(height: 20),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text("Year: " + controller!.detailBook!.year!),
-                        Text("ISBN " + controller!.detailBook!.isbn13!),
-                        Text(controller!.detailBook!.pages! + " Page"),
-                        Text(
-                            "Publisher: " + controller!.detailBook!.publisher!),
-                        Text("Language: " + controller!.detailBook!.language!),
+                        Text("Year: " + controller.detailBook!.year!),
+                        Text("ISBN " + controller.detailBook!.isbn13!),
+                        Text(controller.detailBook!.pages! + " Page"),
+                        Text("Publisher: " + controller.detailBook!.publisher!),
+                        Text("Language: " + controller.detailBook!.language!),
                         // Text(detailBook!.rating!),
                       ],
                     ),
                     Divider(),
-                    controller!.similiarBooks == null
+                    controller.similiarBooks == null
                         ? CircularProgressIndicator()
                         : Container(
                             height: 180,
@@ -159,11 +158,11 @@ class _DetailBookPageState extends State<DetailBookPage> {
                               // shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
                               itemCount:
-                                  controller!.similiarBooks!.books!.length,
+                                  controller.similiarBooks!.books!.length,
                               // physics: NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 final current =
-                                    controller!.similiarBooks!.books![index];
+                                    controller.similiarBooks!.books![index];
                                 return Container(
                                   width: 100,
                                   child: Column(
